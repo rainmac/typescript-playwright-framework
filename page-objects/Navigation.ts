@@ -23,6 +23,12 @@ export class Navigation {
         return false
     }
 
+    async insertDefaultUserLoginCookie(token: string) {
+        await this.page.evaluate(([loginToken]) => {
+            document.cookie = "token=" + loginToken
+        }, [token])
+    }
+
     async verifyBasketItemCount(itemCount: number) {
         await expect(this.basketCount).toBeVisible()
         await expect(this.basketCount).toHaveText(String(itemCount))

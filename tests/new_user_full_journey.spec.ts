@@ -10,7 +10,7 @@ import { PaymentPage } from "../page-objects/PaymentPage"
 import { ThankYouPage } from "../page-objects/ThankYouPage"
 import { deliveryDetails as userAddress} from "../data/deliveryDetails.js"
 
-test.only("New user full end-to-end test journey", async({ page }) => {
+test("New user full end-to-end test journey", async({ page }) => {
 
     const productPage = new ProductPage(page)
     const navigation = new Navigation(page)
