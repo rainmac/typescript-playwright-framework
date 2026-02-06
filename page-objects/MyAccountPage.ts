@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class MyAccount {
 
@@ -25,6 +25,7 @@ export class MyAccount {
 
     async waitForErrorMessage() {
         await this.errorMessage.waitFor()
+        await expect(false).toBe(true)
     }
 
 }
