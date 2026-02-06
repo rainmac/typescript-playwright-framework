@@ -1,0 +1,12 @@
+name: Playwright TypeScript Tests
+on:
+  push:
+    branch: [ main ]
+jobs:
+  playwright-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Say hello
+        run: echo Hello
