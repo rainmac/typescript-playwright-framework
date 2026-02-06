@@ -22,6 +22,7 @@ export default defineConfig({
      */
     timeout: 5000
   },
+  globalSetup: require.resolve("./globalSetup"),
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -61,10 +62,10 @@ export default defineConfig({
     // },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },

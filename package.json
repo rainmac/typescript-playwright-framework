@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --headed"
+    "test": "playwright test --headed --project=\"chromium\"",
+    "test-mobile": "playwright test --headed --project=\"Mobile Chrome\""
   },
   "keywords": [],
   "author": "",
@@ -12,9 +13,12 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.58.1",
-    "@types/node": "^25.2.0"
+    "@types/node": "^25.2.0",
+    "@types/node-fetch": "^2.6.13"
   },
   "dependencies": {
+    "dotenv": "^17.2.4",
+    "node-fetch": "^2.7.0",
     "uuid": "^13.0.0"
   }
 }

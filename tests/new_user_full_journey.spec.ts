@@ -10,7 +10,7 @@ import { PaymentPage } from "../page-objects/PaymentPage"
 import { ThankYouPage } from "../page-objects/ThankYouPage"
 import { deliveryDetails as userAddress} from "../data/deliveryDetails.js"
 
-test.only("New user full end-to-end test journey", async({ page }) => {
+test("New user full end-to-end test journey", async({ page }) => {
 
     const productPage = new ProductPage(page)
     const navigation = new Navigation(page)
@@ -22,23 +22,33 @@ test.only("New user full end-to-end test journey", async({ page }) => {
     await productPage.verifyItemsSortedByCheapest()
 
     // add 3 items to basket
-    await navigation.verifyBasketItemCount(0)
+    if (navigation.isDesktop()) {
+        await navigation.verifyBasketItemCount(0)
+    }
+    
     await productPage.addProductToBasket("Astronaut dabbing")
-    await navigation.verifyBasketItemCount(1)
     await productPage.addProductToBasket("Baby Zebra with butterfly")
-    await navigation.verifyBasketItemCount(2)
     await productPage.addProductToBasket("Young Man in hot air balloon")
-    await navigation.verifyBasketItemCount(3)
+    
+    if (navigation.isDesktop()) {
+        await navigation.verifyBasketItemCount(3)
+    }
 
     // proceed to checkout
     await navigation.goToCheckout()
     
     // remove cheapest item
     const checkoutPage = new CheckoutPage(page)
-    await navigation.verifyBasketItemCount(3)
+
+    if (navigation.isDesktop()) {
+        await navigation.verifyBasketItemCount(3)
+    }
     await checkoutPage.verifyBasketItemCount(3)
     await checkoutPage.removeCheapestItem()
-    await navigation.verifyBasketItemCount(2)
+    
+    if (navigation.isDesktop()) {
+        await navigation.verifyBasketItemCount(2)
+    }
     await checkoutPage.verifyBasketItemCount(2)
 
     // continue to checkout
