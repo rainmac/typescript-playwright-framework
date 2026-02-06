@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --headed --project=\"chromium\"",
-    "test-mobile": "playwright test --headed --project=\"Mobile Chrome\""
+    "test": "playwright test",
+    "test-desktop": "playwright test --project=\"chromium\"",
+    "test-mobile": "playwright test --project=\"Mobile Chrome\""
   },
   "keywords": [],
   "author": "",

@@ -5,7 +5,7 @@ import { Navigation } from "../page-objects/Navigation"
 import { ProductPage } from "../page-objects/ProductPage"
 import { adminDetails } from "../data/userDetails"
 
-test.only("My Account using cookie injection", async({ page }) => {
+test("My Account using cookie injection", async({ page }) => {
 
     const loginToken = await getLoginToken(adminDetails.username!, adminDetails.password!)
     
@@ -19,7 +19,6 @@ test.only("My Account using cookie injection", async({ page }) => {
         })
     })
 
-    // Visit the site 
     const productPage = new ProductPage(page)
     await productPage.visit()
 
