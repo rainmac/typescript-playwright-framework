@@ -25,7 +25,6 @@ export class MyAccount {
 
     async waitForErrorMessage() {
         await this.errorMessage.waitFor()
-        await expect(false).toBe(true)
     }
 
 }
