@@ -1,7 +1,7 @@
 import * as nodeFetch from "node-fetch"
 
 export const getLoginToken = async (username:string, password:string) => {
-    const response = await nodeFetch("http://localhost:2221/api/login", {
+    const response = await nodeFetch("http://127.0.0.1:2221/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
